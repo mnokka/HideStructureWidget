@@ -1,0 +1,19 @@
+<script>
+function noStructure() {
+    console.log ("noStructure activated")
+    if (window.location.href.match(/.*\/browse\/xxxxHIDESTRUCT-1.*/) != null) { 
+		AJS.log('[DEBUG] - COPY PROJECT HIT');
+		AJS.$("#structuremodule").hide();
+            
+    }
+	else if (window.location.href.match(/.*\/browse\/HIDESTRUCT.*/) != null) { 
+		AJS.log('[DEBUG] - PRODUCTION PROJECT HIT');
+        AJS.$("#structuremodule").hide();
+    }
+}
+ 
+AJS.$(document).ready(function(){noStructure()});
+AJS.$(document).bind('dialogContentReady', function(event, dialog){noStructure()});
+JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function(e,context){noStructure()});
+noStructure();
+</script>>
